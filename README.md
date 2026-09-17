@@ -1,8 +1,17 @@
-# Custom XSPEC Cross-ARF Packed Model
+# Custom Xspec Cross-ARF Model
 
-This directory contains the custom XSPEC `xcpkg` package for packed cross-ARF fitting.
-It is intended for the packed `xcrsarfrun` workflow only.
+This contains the custom Xspec `xcpkg` package for a streamlined cross-ARF fit of multiple observations of the same source. Using `xcpkg` with a user-supplied configuration file avoids the traditional, redundant loading of response files and header modifications necessary in the more recently implemented XSPEC `crossarf` model.
 
+Note that this repo is intended for the packed `xcrsarfrun` workflow only.
+
+## TL;DR
+1. Build the model (`./build_xcrsarf.sh`)
+2. Setup a config file (see provided example) (`config.txt`)
+3. Load the model in xspec (`lmod xcpkg Custom_Xspec_CrossARF_Model/build/xcpkg`)
+4. Load the config file in xspec (`xcrsarfrun config.txt`)
+5. Fit. 
+
+## The Details
 The package provides:
 
 - `xcrsarf`: a local XSPEC mixing model derived from XSPEC's `crossarf` model.
